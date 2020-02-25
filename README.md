@@ -4,16 +4,16 @@ Kubernetes in KVM
 
 ## Networking
 
-virsh net-define nat223.xml
-virsh net-start nat223
-virsh net-autostart nat223
+    virsh net-define nat223.xml
+    virsh net-start nat223
+    virsh net-autostart nat223
 
 
 ## Create VMs
 
-./cluster.sh install k8s-master
-./cluster.sh install k8s-node1
-./cluster.sh install k8s-node2
+    ./cluster.sh install k8s-master
+    ./cluster.sh install k8s-node1
+    ./cluster.sh install k8s-node2
 
 
 ### Note 
