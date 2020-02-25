@@ -1,0 +1,27 @@
+<network>
+    <name>nat223</name>
+    <forward mode='nat' dev='wlp0s20f3'/>
+    <bridge name='virbr223' stp='on' delay='2'/>
+    <domain name="local" localOnly="yes"/>
+    <dns forwardPlainNames='no'>
+        <forwarder addr='8.8.8.8'/>
+        <forwarder domain='local' addr='192.168.223.1'/>
+        <host ip='192.168.223.143'>
+            <hostname>k8s-master.local</hostname>
+        </host>
+        <host ip='192.168.223.144'>
+            <hostname>k8s-node1.local</hostname>
+        </host>
+        <host ip='192.168.223.145'>
+            <hostname>k8s-node2.local</hostname>
+        </host>
+    </dns>
+    <ip address='192.168.223.1' netmask='255.255.255.0'>
+        <dhcp>
+            <range start='192.168.223.141' end='192.168.223.254'/>
+            <host name='k8s-master' ip='192.168.223.143'/>
+            <host name='k8s-node1' ip='192.168.223.144'/>
+            <host name='k8s-node2' ip='192.168.223.145'/>
+        </dhcp>
+    </ip>
+</network>
